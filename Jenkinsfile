@@ -58,6 +58,18 @@ pipeline {
                 '''
             }
         }
+
+        // Remove Docker Image
+        stage('Remove Docker Image') {
+            steps {
+                sh '''
+                docker rmi spring-petclinic:$BUILD_NUMBER
+                docker rmi rosescent00/spring-petclinic:latest
+                '''
+
+            }
+        }
+        
         
         stage('SSH Pubilsh') {
             steps {
