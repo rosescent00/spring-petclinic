@@ -51,7 +51,7 @@ pipeline {
 
         //Docker images push
         stage('Docker Image Push') {
-            step {
+            steps {
                 sh '''
                 echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
                 docker push rosescent00/spring-petclinic:latest
